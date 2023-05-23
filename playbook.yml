@@ -1,0 +1,11 @@
+---
+- name: just work
+  hosts: all
+  module_defaults:
+    group/aws:
+      region: "us-west-2"
+  tasks:
+  - name: EC2 Metadata
+    amazon.aws.ec2_metadata_facts:
+  - debug:
+      var: ansible_ec2_user_data
